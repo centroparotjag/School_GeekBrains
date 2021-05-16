@@ -2,7 +2,6 @@
 #include <cstdlib>
 //#include <cstring>
 
-
 int magic_number;		//extern int magic_number;
 static int magic_number2 = 1;
 
