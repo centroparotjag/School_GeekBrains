@@ -1,123 +1,48 @@
 #include <iostream>
 #include <cstdlib>
-//#include <cstring>
 
+#include "lesson.h"
+#include "lesson_second.cpp"
 
-int magic_number;		//extern int magic_number;
-static int magic_number2 = 1;
+extern int i, j , k , l ;
+
 
 int main(int argc, const char** argv) { 
 
-	magic_number = 42;
+//  1.Написать программу, вычисляющую выражение a * (b + (c / d)) 
+//	и выводящую результат с плавающей точкой, где a, b, c, d – целочисленные константы;
+	int a = 5, b = 3, c = 9, d = 13;
+	double result;
 
-// 1.Create and initialize variables of traversed data types
-	printf("\nVariables\n");
+	result = a * (b + ((double)c / d));
 
-	char 	var_char		= 'A';			
-	int 	var_int			= 0xFFFF;
-	short 	var_short		= 0xFFFF;
-	long 	var_long		= 0xFFFFFFFF;
-	
-	printf("\tvar_char = %c\n\tvar_int = 0x%.4X\n\tvar_short = 0x%.4X\n\tvar_long = 0x%.8X\n", 
-		 var_char, var_int, var_short, var_long);
-
-	//-------
-	unsigned int 	var_uint 	= 0xFFFF;
-	unsigned short 	var_ushort 	= 0xFFFF;
-	unsigned long 	var_ulong 	= 0xFFFFFFFF;
-	
-	printf("\n\tvar_uint = 0x%.4X\n\tvar_ushort = 0x%.4X\n\tvar_ulong = 0x%.8X\n", 
-		  var_uint, var_ushort, var_ulong);
-
-	//-------			  
-	float  f_PI = 3.141592;
-	double d_PI = 3.141592653589793;
-
-    printf("\n\tfloat  PI = %1.6f\n\tdouble PI = %1.15f\n", f_PI, d_PI);
+	printf("\n1.\t%1.13f\n", result);
 
 
+//  2. Дано целое число, выведите на экран разницу между этим числом и числом 21. 
+//	Если же заданное число больше, чем 21, необходимо вывести удвоенную разницу 
+//	между этим числом и 21. При выполнении задания следует использовать тернарный оператор.
+	int number = 533;
+	int result_2;
+
+	result_2 = number > 21 ? (number - 21) * 2 : 21 - number;
+	printf("\n2.\t%d\n", result_2);
 
 
+//  3. * Написать программу, вычисляющую выражение из первого задания, 
+//	а переменные для неё инициализировать в другом файле
+
+	result = e * (f + ((double)g / h));		// e, f, g, h in lesson.h
+	printf("\n3.1\t%1.13f\n", result);
+
+	assign_values (3, 1, 14, 13);			// assign values (i, j, k, l) in lesson_second.cpp
+	result = i * (j + ((double)k / l));		// extern variables 
+	printf("3.1\t%1.13f\n", result);
 
 
-// 2. Create an enumeration with possible variants of symbols 
-//    for playing tic-tac-toe
-    enum ttt_cell_state {free, cross, zero};
-
-
-
-
-
-
-// 3. Create an array capable of containing the values of such
-//    an enumeration and initialize it.
-    int tic_tac_toe_array [3] [3] = {0};
-
-    // verification
-    printf("\nVerification array tic_tac_toe\n");
-    tic_tac_toe_array [0] [0] = ttt_cell_state::cross;
-    tic_tac_toe_array [2] [2] = ttt_cell_state::zero;
-
-    for (int i=0; i<3; i++){
-		printf("\t%d %d %d\n", tic_tac_toe_array [i] [0], 
-			tic_tac_toe_array [i] [1], tic_tac_toe_array [i] [2]);
-    }
-
-
-
-
-
-// 4. Create a data structure "Field for the game of tic-tac-toe" 
-//    and provide it with all the necessary (in your opinion) properties
-    struct ttt {
-    	char Player0_name[16];
-    	char Player1_name[16];
-    	int ttt_game_field [3] [3];
-       // int game_step;		// can be parsed - ttt_game_field
-        int who_goes_first;
-    };
-	
- 
-
-
-
-
-// 5. Create a union and structure with bit flags indicating 
-//    what type of value is currently contained in the union
-
-union var_int {
-    struct {
-        unsigned char var0 : 4;
-        unsigned char var1 : 4;
-        unsigned char var2 : 4;
-        unsigned char var3 : 4;
-    } nibble;
-    struct {
-        unsigned char var_1_0;
-        unsigned char var_3_2;
-    } bytes;
-    unsigned int word;
-};
-typedef union var_int var_all;
-
-
-
-// verification
-printf("\nUnion / Struct / Bit Field\n");
-
-var_all var_union_str_b;
-
-var_union_str_b.word = 0xABCD;		// union initialization
-
-printf("\tstruct(Bit Field): var3=0x%01X,", var_union_str_b.nibble.var3);  
-printf(" var2=0x%01X,", var_union_str_b.nibble.var2);  
-printf(" var1=0x%01X,", var_union_str_b.nibble.var1);  
-printf(" var0=0x%01X\n", var_union_str_b.nibble.var0);
-
-printf("\tstruct:            var_3_2=0x%02X,", var_union_str_b.bytes.var_3_2);
-printf(" var_1_0=0x%02X\n", var_union_str_b.bytes.var_1_0);
-
-printf("\tunion:             word(int)=0x%04X\n", var_union_str_b.word);
+//  4. * Описать трёхмерный целочисленный массив, размером 3х3х3, указатель на значения 
+//	внутри массива и при помощи операции разыменования вывести на экран значение 
+//  центральной ячейки получившегося куба [1][1][1]
 
 
     return 0; 
