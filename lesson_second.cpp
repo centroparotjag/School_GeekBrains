@@ -4,9 +4,6 @@
 #include "lesson.h"
 
 int i, j, k, l; 
-// int j; 
-// int k; 
-// int l;
 
 void assign_values (int i1, int j1 , int k1 , int l1){
 
