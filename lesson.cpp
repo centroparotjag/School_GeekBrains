@@ -53,14 +53,14 @@ int main(int argc, const char** argv) {
 	int *adr_arr;					// pointer
 
 	int array[3][3][3] = {	{	{'A', 'B', 'C'}, {'D', 'E', 'F'}, {'G', 'H', 'I'}	},
-						    {	{'J', 'K', 'L'}, {'M', 'N', 'O'}, {'P', 'Q', 'R'}	},
-						    {	{'S', 'T', 'U'}, {'V', 'W', 'X'}, {'Y', 'Z', '-'}	}   };
+						{	{'J', 'K', 'L'}, {'M', 'N', 'O'}, {'P', 'Q', 'R'}	},
+						{	{'S', 'T', 'U'}, {'V', 'W', 'X'}, {'Y', 'Z', '-'}	}   };
 
 
 	adr_arr = array[0][0] + 13;		// taking an address (into a pointer)
 
 
-	printf("\tAddress array[1][1][1] = 0x%p\n ",  adr_arr);		// adress
+	//printf("\tAddress array[1][1][1] = 0x%p\n ",  adr_arr);		// adress
 	printf("\tValue   array[1][1][1] = %c\n "  , *adr_arr);		// value at address (renaming)
 
 
