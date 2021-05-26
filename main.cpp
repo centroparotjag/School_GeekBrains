@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
  //    которая с помощью цикла заполнит его значениями 1 4 7 10 13 16 19 22;
         printf("\n2.\n");
 
-        T2 = Task2_filling_the_array1;
+        T2 = Task2_filling_the_array2;
 
         char array2[8] = { 0 };
 
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 
         char n = -4;
         constexpr char size_arr4 = 11;
-        char array4 [size_arr4] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11};
+        char array4 [size_arr4] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 
         printf("\tBefore shifting array4[%d] = { ", size_arr4);

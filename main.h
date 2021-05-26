@@ -8,7 +8,7 @@ namespace task1 {
 }
 
 
-void Task2_filling_the_array1 (char *arr);
+void Task2_filling_the_array2 (char *arr);
 
 int Task3_checkBalance (char *array, char size_arr);
 
