@@ -3,8 +3,10 @@
 
 #include <iostream>
 
+namespace task1 {
+    void Task1_replacement_data_in_array1  (char *arr, char size_arr1);
+}
 
-void Task1_replacement_data_in_array1  (char *arr, char size_arr1);
 
 void Task2_filling_the_array1 (char *arr);
 

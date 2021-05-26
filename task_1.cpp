@@ -4,7 +4,7 @@
 //    принятом массиве 0 на 1, 1 на 0 (** без примененияif-else, switch, () ? :);
 #include "main.h"
 
-using namespace std;
+namespace task1{
 
     //---------- Replacement array1 data! -------------
     void Task1_replacement_data_in_array1 (char *arr, char size_arr1){
@@ -16,6 +16,6 @@ using namespace std;
 
     }
 
-
+}
 
 

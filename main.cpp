@@ -2,13 +2,15 @@
 #include <iostream>
 #include "main.h"
 
-using namespace std;
+
 
 void(*T1)(char*, char);
 void(*T2)(char*);
 int (*T3)(char*, char);
 void(*T4)(char*, char, char);
 void(*T5)(int size, ...);
+
+
 
 
 int main(int argc, char *argv[])
@@ -21,7 +23,8 @@ int main(int argc, char *argv[])
 //    принятом массиве 0 на 1, 1 на 0 (** без примененияif-else, switch, () ? :);
         printf("\n1.\n");
 
-        T1 = Task1_replacement_data_in_array1;
+        T1 = task1::Task1_replacement_data_in_array1;
+
 
         constexpr char size_arr1 = 10;
         char array1[size_arr1] = { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
