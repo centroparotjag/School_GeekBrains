@@ -69,9 +69,9 @@ int main(int argc, char *argv[])
 
         T3 = Task3_checkBalance;
 
-        char size_arr3 = 5;
-//        char array3 [5] = {1, 1, 1, 2, 1};
-        char array3 [5] = {2, 1, 1, 2, 1};
+        constexpr char size_arr3 = 5;
+        char array3 [size_arr3] = {1, 1, 1, 2, 1};        // true
+//        char array3 [size_arr3] = {2, 1, 1, 2, 1};        // false
 
         printf("\tCheckBalance: ");
         printf( T3(array3, size_arr3)  ? "true\n" : "false\n");
