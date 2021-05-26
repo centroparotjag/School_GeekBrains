@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 //    2. Задать пустой целочисленный массив размером 8. Написать функцию,
 //    которая с помощью цикла заполнит его значениями 1 4 7 10 13 16 19 22;
 
-    void Task2_filling_the_array1 (char *arr){
+    void Task2_filling_the_array2 (char *arr){
 
         for (int i = 0, k=7; i < 8; ++i) {
             arr[k] = (k*3)+1;
