@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
 
         T1 = Task1_replacement_data_in_array1;
 
-        char size_arr1 = 10;
-        char array1[10] = { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
+        constexpr char size_arr1 = 10;
+        char array1[size_arr1] = { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
 
         //---------- Replacement array1 data! -------------
         printf("\tBefore replacement array1: array1[%d] = { ", size_arr1);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
             printf((size_arr1-1 == i) ? " };\n" : ", ");
         }
 
-        T1 (array1, 10);  // here the replacement of data in the array1
+        T1 (array1, size_arr1);  // here the replacement of data in the array1
 
         printf("\tAfter replacement array1:  array1[%d] = { ", size_arr1);
         for (int i = 0; i < size_arr1; ++i) {
