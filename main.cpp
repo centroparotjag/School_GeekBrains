@@ -18,21 +18,30 @@ int main(int argc, char *argv[])
     const std::string word1 ("This canonical novel was based in part on Conrad’s experiences as a steamboat captain on the Congo in 1890.");
     const std::string word2 ("Come, children, let us shut up the box and the puppets, for our play is played out.");
 
-    create_and_write_file_txt ( "file_1.txt" , word1 );
-    create_and_write_file_txt ( "file_2.txt" , word2 );
+    std::string filename1 = "file_1.txt";
+    std::string filename2 = "file_2.txt";
+
+    create_and_write_file_txt ( filename1, word1 );
+    create_and_write_file_txt ( filename2, word2 );
+
+
+    // 2.   Написать функцию, «склеивающую» эти файлы, предварительно буферизуя их содержимое в
+    //      динамически выделенный сегмент памяти нужного размера.
+
+    std::string word;
+    std::ifstream fis( filename1 );
+    fis >> word;
+
+
+
+//    while (!fis.eof()) {
+
+//    }
 
 
 
 
 
-
-
-
-
-
-//    std::string word;
-//    std::ifstream fis("hello.txt");
-//    fis >> word;
 //    //fis.getLine(word);
 //    char c;
 //    fis.get(c);
@@ -43,15 +52,6 @@ int main(int argc, char *argv[])
 
 
 
-
-
-
-
-
-    // 2.   Написать функцию, «склеивающую» эти файлы, предварительно буферизуя их содержимое в
-    //      динамически выделенный сегмент памяти нужного размера.
-
-
     // 3.   * Написать программу, которая проверяет присутствует ли указанное пользователем при
     //      запуске программы слово в указанном пользователем файле (для простоты работаем только с латиницей).
 
@@ -59,7 +59,12 @@ int main(int argc, char *argv[])
 
 
 
-
+    //    std::string word;
+    //    std::ifstream fis("hello.txt");
+    //    fis >> word;
+    //    //fis.getLine(word);
+    //    char c;
+    //    fis.get(c);
 
 
 
