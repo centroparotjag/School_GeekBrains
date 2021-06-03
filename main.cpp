@@ -43,12 +43,13 @@ int main(int argc, char *argv[])
 //      запуске программы слово в указанном пользователем файле (для простоты работаем только с латиницей).
 
     bool status;
-    const std::string search ("90.Co");     // search word
+    //const std::string search ("90.Co");     // search word
 
-    status = Word_Search (search, glue_filename3);
+    const std::string search = argv[1];
+
+    status =  Word_Search (search,  glue_filename3);
 
     printf("Status search word - %d\n", status);
-
 
 
     return a.exec();
@@ -130,6 +131,7 @@ void Glue_text (const std::string& filename1, const std::string& filename2, cons
 
 //----------------------------------------------------------------------------------------
 bool Word_Search (const std::string& search, const std::string& filename){
+
     bool status = true;
 
 //----------- bad algiritm ----------------
@@ -173,7 +175,6 @@ bool Word_Search (const std::string& search, const std::string& filename){
 
                 if(buffer_file[i+k] != buffer_search_world[k]){
                     status = false;
-                    printf("break ");
                     break;
                 }
             }
