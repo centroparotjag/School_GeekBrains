@@ -1,5 +1,6 @@
 #include <QCoreApplication>
 #include <fstream>
+#include <stdio.h>
 #include "main.h"
 
 
@@ -49,6 +50,7 @@ int main(int argc, char *argv[])
     printf("Status search word - %d\n", status);
 
 
+
     return a.exec();
 }
 
@@ -66,10 +68,21 @@ void create_and_write_file_txt( const std::string& name_file , const std::string
 
 //----------------------------------------------------------------------------------------
 int get_size_text (const std::string& name_file){
-    std::fstream fis( name_file );     // open file
-    fis.seekg(0, std::ios::end);        //
-    int size = fis.tellg();
-    fis.close();
+//    std::fstream fis( name_file );     // open file
+//    fis.seekg(0, std::ios::end);        //
+//    int size = fis.tellg();
+//    fis.close();
+
+
+    int size=0;
+    std::ifstream fis( name_file );
+
+    while (!fis.eof()) // пока не конец файла
+    {
+      fis.get();
+      size++;
+    }
+
     return size-2;
 }
 
@@ -133,6 +146,9 @@ bool Word_Search (const std::string& search, const std::string& filename){
     int size_search_world = search.length();
     int size_file = get_size_text (filename);
 
+
+   // printf("size_search_world-%d", size_search_world);
+
     //-------- Array declaration -----------
     char* buffer_search_world   = new char[size_search_world];
     char* buffer_file   = new char[size_file];
@@ -145,11 +161,19 @@ bool Word_Search (const std::string& search, const std::string& filename){
     file_buffering (filename, buffer_file);
 
     //--------------- Here search ------------------------
-    for (int i = 0; i < size_file; ++i) {
-        if( buffer_file[i] == buffer_search_world[0] ){
-            for (int k = 0; k < size_search_world; ++k) {
+    int i = 0;
+    int k = 0;
+
+    for ( i = 0; (i < size_file) && (k < size_search_world-1); ++i) {
+
+        if( buffer_file[i] == buffer_search_world[0]){
+            status = true;
+
+            for (k = 0; k < size_search_world; ++k) {
+
                 if(buffer_file[i+k] != buffer_search_world[k]){
                     status = false;
+                    printf("break ");
                     break;
                 }
             }
