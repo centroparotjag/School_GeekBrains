@@ -10,7 +10,7 @@
 
 // 2.
 #define ARRAY_VALUE(array, lines, columns)    ( *(*((array)+(lines))+(columns)) )
-//*(*(array+lines)+columns)
+
 
 
 
