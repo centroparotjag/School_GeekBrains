@@ -1,8 +1,6 @@
 #include <QCoreApplication>
 #include <stdio.h>
-//#include <fstream>
-
-
+//#include <iostream>
 
 
 // 1.
@@ -10,6 +8,9 @@
 
 // 2.
 #define ARRAY_VALUE(array, lines, columns)    ( *(*((array)+(lines))+(columns)) )
+
+// 3.
+#define ARRAY_SIZE(arrayref, type_arr)    ( sizeof(arrayref)/sizeof(*(type_arr)) )
 
 
 
@@ -77,6 +78,13 @@ int main(int argc, char *argv[])
 //      массива, принимающую на вход ссылку на массив и его тип
     printf("\n3-Task.\n");
 
+    int array2[11] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+
+    const int sise_arr2 = sizeof(array2)/sizeof(*array2);
+    int (&arrayref)[sise_arr2] = array2;
+
+
+    printf("Size - %d.\n", (int)ARRAY_SIZE(arrayref, arrayref));
 
 
 
