@@ -7,7 +7,7 @@
 #define VALUE_CHECK(num, arg)   ( (((num) >= 0) && ((num) < (arg)))  ? (true) : (false) )
 
 // 2.
-#define ARRAY_VALUE(array, lines, columns)    ( *(*((array)+(lines))+(columns)) )
+#define ARRAY_VALUE(array, row, columns)    ( *(*((array)+(row))+(columns)) )
 
 // 3.
 #define ARRAY_SIZE(arrayref, type_arr)    ( sizeof(arrayref)/sizeof(*(type_arr)) )
@@ -39,38 +39,27 @@ int main(int argc, char *argv[])
     printf("\n2-Task.\n");
 
     // declaration of a dynamic two-dimensional array
-    int lines;
-    int columns;
-    int** array = new int*[2];              // lines 2
-    for (lines = 0; lines < 2; lines++){
-        array[lines] = new int [3];         // columns 3
-    }
-
-    //--------- Filling array -----------
-    int filling = 0;
-    for (lines = 0; lines < 2; ++lines) {
-        for (columns = 0; columns < 3; ++columns) {
-            array [lines][columns] = filling++;
-        }
-    }
+    int ** array = new int*[2];
+    array[0] = new int[3] {0, 1, 2};
+    array[1] = new int[3] {3, 4, 5};
 
 
 
     //------ Print all cell array ---------
-    for (lines = 0; lines < 2; ++lines) {
-        for (columns = 0; columns < 3; ++columns) {
-            printf("array[%d][%d]=%d\n", lines, columns, ARRAY_VALUE(array, lines, columns));
+    int row;
+    int col;
+    for (row = 0; row < 2; ++row) {
+        for (col = 0; col < 3; ++col) {
+            printf("array[%d][%d]=%d\n", row, col, ARRAY_VALUE(array, row, col));
 
         }
     }
 
 
     // freeing the memory of a dynamic two-dimensional array
-    for (lines = 0; lines < 2; lines++){
-        delete [] array[lines];             // del lines 2
-    }
-
-
+    delete [] array[0];
+    delete [] array[1];
+    delete [] array;
 
 
 
